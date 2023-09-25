@@ -9,7 +9,7 @@ function Home() {
     
       <button><Link to="/Product">PRODUCT</Link></button>
       
-      <p><button><Link to="/">cart</Link></button></p>
+      <p><button><Link to="/Cart">cart</Link></button></p>
       
         
       

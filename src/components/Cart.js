@@ -1,5 +1,6 @@
 import React, { useContext } from 'react'
 import { cont } from '../App'
+import "./Cart.css"
 
 function Cart() {
     const {cart, setCart} = useContext(cont)
@@ -31,6 +32,7 @@ function Cart() {
                         <h4>{item.title}</h4>
                         <p>{item.price}</p>
                         <p>{item.id}</p>
+                         
                         <button onClick={(e) => handledelete(e, item)}>Remove</button>
                     </div>
                 </div>

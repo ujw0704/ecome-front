@@ -1,7 +1,12 @@
 import React from 'react'
 import "./Header.css"
  import { Link } from 'react-router-dom'
+ import { useContext } from 'react'
+ import { cont } from '../App'
 function Header() {
+
+  const {cart, setCart} = useContext(cont)
+
   return (
     <div className='container'>
       <ul>
@@ -19,7 +24,7 @@ function Header() {
                 <Link to ="/Product">Product</Link>
             </li>
             <li>
-                <Link to ="/Cart">Cart</Link>
+                <Link to ="/Cart">Cart{cart.length }</Link>
             </li>
          
       </ul>
