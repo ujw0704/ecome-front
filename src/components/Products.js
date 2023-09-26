@@ -4,8 +4,8 @@ import axios from "axios";
 import "./Product.css"
 import { cont } from '../App';
 function Products() {
-  
-  const {products, setProducts, cart, setCart} = useContext(cont)
+
+  const { products, setProducts, cart, setCart } = useContext(cont)
 
   useEffect(() => {
     axios.get("https://fakestoreapi.com/products")
@@ -19,22 +19,29 @@ function Products() {
       });
   }, []);
   useEffect(() => {
+
     localStorage.setItem("cartitems", JSON.stringify(cart))
+
+
+
   }, [cart])
+  console.log(cart)
   function handleClick(e, product) {
 
+    let item = product
+    item.quantity = 1
     e.preventDefault()
-    setCart([...cart, product])
+    setCart([...cart, item])
 
   }
 
-  //  axios.post('http://localhost:8080/Products')
+  //  axios.get('http://localhost:8080/Product')
   //  .then((result) => {
   //    console.log(result.data)
 
 
 
-  //  })
+  // })
 
   return (
 
@@ -49,6 +56,7 @@ function Products() {
             <h2>{product.title}</h2>
             <div className="image-container">
               <img src={product.image} alt="product" />
+              <h2> {product.quantity} </h2>
             </div>
             <button onClick={(e) => handleClick(e, product)}>add to cart</button>
           </div>

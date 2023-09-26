@@ -6,7 +6,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom"
 import Header from './components/Header';
 import Home from './components/Home';
 import Products from './components/Products';
-import Productcart from './components/Productcart';
+
 import Cart from './components/Cart';
 import { createContext, useState } from 'react';
 
@@ -15,10 +15,14 @@ export const cont = createContext({})
 
 function App() {
   const [products, setProducts] = useState([]);
-  const [cart, setCart] = useState([])
+  const [cart, setCart] = useState(
+    (localStorage.getItem("cartitems") === null)
+      ? []
+      : JSON.parse(localStorage.getItem("cartitems"))
+  )
   return (
     <div className="App">
-      <cont.Provider value={{products, setProducts, cart, setCart}}>
+      <cont.Provider value={{ products, setProducts, cart, setCart }}>
         <BrowserRouter>
           <Header />
           <Routes>
@@ -28,8 +32,8 @@ function App() {
             <Route path='/login' element={<Login />}>Login</Route>
             <Route path='/Product' element={<Products />}></Route>
             <Route path='/Cart' element={<Cart />}></Route>
-            {/* 
- <Route path ="/ProductCart" element {<Productcart/>}></Route> */}
+
+
           </Routes>
         </BrowserRouter>
       </cont.Provider>

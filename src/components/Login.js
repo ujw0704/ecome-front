@@ -8,20 +8,17 @@ function Login() {
   function handleSubmit(e) {
     e.preventDefault();
 
-    
-    
-    
     axios.post('http://localhost:8080/login', {name, password})
     .then((result) => {
       console.log(result.data)
-      setName("")
-      setPassword("")
+      // setName("")
+      // setPassword("")
       
     })
   }
 
 
-console.log(name)
+// console.log(name)
 
   return (
     <div className="login-container">
