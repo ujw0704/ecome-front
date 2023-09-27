@@ -33,15 +33,24 @@ function Products() {
     e.preventDefault()
     setCart([...cart, item])
 
+    
+    
+    
+
+    
+    
+    axios.post('http://localhost:8080/Product',item)
+    .then((result) => {
+      
+      
+      console.log(result.data)
+      
+      
+      
+      
+    })
   }
 
-  //  axios.get('http://localhost:8080/Product')
-  //  .then((result) => {
-  //    console.log(result.data)
-
-
-
-  // })
 
   return (
 
@@ -56,7 +65,7 @@ function Products() {
             <h2>{product.title}</h2>
             <div className="image-container">
               <img src={product.image} alt="product" />
-              <h2> {product.quantity} </h2>
+              {/* <h2> {product.quantity} </h2> */}
             </div>
             <button onClick={(e) => handleClick(e, product)}>add to cart</button>
           </div>
