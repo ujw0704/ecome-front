@@ -22,15 +22,16 @@ function Cart() {
 //   return productInCart.id !==item.id
 
 //  })
-//   cart.forEach(element => {
+  cart.forEach(element => {
   
-//   if (element.id === item.id){
-//     element.quantity++
-//     return element
+  if (element.id === item.id){
+    element.quantity++
+    return element
     
-//   }
-//  });
-//   console.log(Increment)
+  }
+  console.log(element)
+ });
+  // console.log(Increment)
 // //  console.log(updatCart)
   
 
@@ -58,7 +59,7 @@ function Cart() {
       {
         cart.map((item, index) => {
           return (
-            <div className='item'>
+            <div className='item' key={index}>
               <div className='left'>
                 <img src={item.image} alt="" />
               </div>
@@ -67,16 +68,17 @@ function Cart() {
                 <p>{item.price}</p>
                 <p>{item.length}</p>
                 <p>{item.id}</p>
+                <p>{item.quantity}</p>
 
                 <button onClick={(e) => handledelete(e, item)}>Remove</button>
 
 
 
 
-                {/* <p><button onClick={() => Increment(item)}>+</button></p>
+                <p><button onClick={(e) => {Increment(item)}}>+</button></p>
+                        <p></p>
 
-
-                <p><button onClick={() => Decrement(item)}>-</button></p> */}
+                <p><button onClick={() => Decrement(item)}>-</button></p>
 
               </div>
             </div>
