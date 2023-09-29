@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import './Login.css';
  import axios from "axios"
+import { Link } from 'react-router-dom';
 function Login() {
   const [name, setName] = useState('');
   const [password, setPassword] = useState('');
@@ -37,8 +38,18 @@ function Login() {
       <button onClick={handleSubmit}>Submit</button>
 
    
-    </div>
-  );
-}
+  <div>
+ <div>
+<p>Don't have an account?</p>
+<button>
+  <Link to="/register">Register</Link>
+</button>
+</div>
+  </div>
+   </div>
+ );
+ }
 
-export default Login;
+export default Login; 
+
+

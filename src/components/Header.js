@@ -26,6 +26,7 @@ function Header() {
             <li>
                 <Link to ="/Cart">Cart{cart.length }</Link>
             </li>
+          
          
       </ul>
     </div>

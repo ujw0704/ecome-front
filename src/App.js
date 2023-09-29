@@ -6,6 +6,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom"
 import Header from './components/Header';
 import Home from './components/Home';
 import Products from './components/Products';
+import Reistertion from './components/Reistertion';
 
 import Cart from './components/Cart';
 import { createContext, useState } from 'react';
@@ -31,8 +32,8 @@ function App() {
             <Route path='/about' element={<About />}>About</Route>
             <Route path='/login' element={<Login />}>Login</Route>
             <Route path='/Product' element={<Products />}></Route>
-            <Route path='/Cart' element={<Cart />}></Route>
-
+            <Route path='/Cart' element={<Cart />}>cart</Route>
+             <Route path='/register'element={<Reistertion/>}>Register</Route>
 
           </Routes>
         </BrowserRouter>
