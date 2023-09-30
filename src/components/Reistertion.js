@@ -1,6 +1,11 @@
 import React, { useState } from 'react';
 import axios from "axios"
+import md5 from "md5"
+import { useNavigate } from 'react-router-dom';
+import "./reistertion.css"
+
 function Registration() {
+  const navigate = useNavigate()
   const [formData, setFormData] = useState({
     firstname: "",
     lastname: "",
@@ -23,23 +28,34 @@ function Registration() {
     event.preventDefault();
     console.log(formData);
 
+  }
+    // function handleSubmit(event) {
+    //   event.preventDefault();
+    //   console.log(formData);
+  
+      // Hash the password using MD5
+      const hashedPassword = md5(formData.password);
 
-   
 
-    axios.post('http://localhost:8080/register', formData)
+      const formDataWithHashedPassword = {
+        ...formData,
+        password: hashedPassword,
+      };
+    axios.post('http://localhost:8080/register',formDataWithHashedPassword )
     .then((result) => {
       console.log(result.data);
+      if(result.status === 200 && result.statusText === "OK") navigate("/login")
     })
     .catch((error) => {
       console.error("AxiosError:", error);
     });
   
-  }
+    // }
 
 
 
   return (
-    <div>
+    <div className="form-container">
       <form onSubmit={handleSubmit}>
         <input
           type="text"
@@ -57,13 +73,14 @@ function Registration() {
           value={formData.lastname}
           onChange={handleChange}
         />
-        <input
+        <input  
           type="text"
           placeholder="Enter your password"
           name="password"
           id="password"
           value={formData.password}
           onChange={handleChange}
+          
         />
         <input
           type="text"
@@ -89,7 +106,7 @@ function Registration() {
           value={formData.email}
           onChange={handleChange}
         />
-        <button type="submit">Submit</button>
+        <button type="submit"className="submit-button">Submit</button>
       </form>
     </div>
   );
