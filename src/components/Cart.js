@@ -126,12 +126,17 @@ function Cart() {
           
           return { ...productInCart, quantity: productInCart.quantity + 1 };
         }
+
+        
         return productInCart;
       });
-    
+     console.log(updatedCart)
       setCart(updatedCart);
+
+      
     }
     
+  
     function Decrement(item) {
       const updatedCart = cart.map((productInCart) => {
         if (productInCart.id === item.id) {

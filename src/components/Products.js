@@ -33,11 +33,7 @@ function Products() {
     e.preventDefault()
     setCart([...cart, item])
 
-    
-    
-    
-
-    
+  
     
     axios.post('http://localhost:8080/Product',item)
     .then((result) => {

@@ -29,11 +29,11 @@ function Registration() {
     console.log(formData);
 
   }
-    // function handleSubmit(event) {
-    //   event.preventDefault();
-    //   console.log(formData);
+    function handleSubmit(event) {
+      event.preventDefault();
+      console.log(formData);
   
-      // Hash the password using MD5
+       }  
       const hashedPassword = md5(formData.password);
 
 
@@ -55,7 +55,7 @@ function Registration() {
 
 
   return (
-    <div className="form-container">
+    <div  className='form-container'>
       <form onSubmit={handleSubmit}>
         <input
           type="text"
@@ -73,14 +73,13 @@ function Registration() {
           value={formData.lastname}
           onChange={handleChange}
         />
-        <input  
+        <input
           type="text"
           placeholder="Enter your password"
           name="password"
           id="password"
           value={formData.password}
           onChange={handleChange}
-          
         />
         <input
           type="text"
@@ -106,7 +105,7 @@ function Registration() {
           value={formData.email}
           onChange={handleChange}
         />
-        <button type="submit"className="submit-button">Submit</button>
+        <button type="submit" className='submit-button'>Submit</button>
       </form>
     </div>
   );
