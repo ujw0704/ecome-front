@@ -15,8 +15,8 @@ function Login({ history }) {
     axios.post('http://localhost:8080/login', { username, password })
       .then((result) => {
         console.log(result.data)
-        if (result.data.sucess) {
-          console.log('Login successful');
+        if (result.data.status===200) {
+          console.log(result.data.message);
          
         } else {
           console.error("Error in login");

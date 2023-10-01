@@ -24,16 +24,16 @@ function Registration() {
     }));
   }
 
-  function handleSubmit(event) {
-    event.preventDefault();
-    console.log(formData);
+  // function handleChange(event) {
+  //   event.preventDefault();
+  //   console.log(formData);
 
-  }
+  // }
     function handleSubmit(event) {
       event.preventDefault();
       console.log(formData);
   
-       }  
+       
       const hashedPassword = md5(formData.password);
 
 
@@ -50,7 +50,7 @@ function Registration() {
       console.error("AxiosError:", error);
     });
   
-    // }
+    }
 
 
 
